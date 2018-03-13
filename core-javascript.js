@@ -6,13 +6,14 @@
 // use framwork/lib with getstarted tuto, c/p a lot of stuff, relay on stackoverflow
 // then misunderstanding leads to hate & language blaming
 // @see https://github.com/denysdovhan/wtfjs
-
 (() => {
-  const value = function* () {
+  var value = (function *() {
     let i = 0;
-    while(true) yield ++i;
-  }();
-  Object.defineProperty(global || window, 'x', {
+    while (true) {
+      yield ++i;
+    }
+  })();
+  Object.defineProperty(global || window, "x", {
     get() {
       return value.next().value;
     }
@@ -22,9 +23,9 @@
 var a = typeof null === "object",
   b = new Boolean(false), // bad use of constructor
   c = NaN !== NaN, // simple logic
-  d = [] + [] === "" // coercion
-  e = (0.1 + 0.2) !== 0.3 // @see http://0.30000000000000004.com/
-  f = (x === 1 && x === 2 && x === 3); // generators
+  d = [] + [] === "", // coercion
+  e = 0.1 + 0.2 !== 0.3, // @see http://0.30000000000000004.com/
+  f = x === 1 && x === 2 && x === 3; // generators
 if (a && b && c && d && e && f) {
   console.log("JavaScript seems so fucked up");
 }
@@ -44,33 +45,29 @@ if (a && b && c && d && e && f) {
 // TYPES
 // primitive types and their boxing behavior (ex: String().upperCase());
 var empty = [undefined, null];
-var primitives = ['Quelle est la taille du rayon de la terre', 6371, true];
-console.log(empty.concat(primitives).map(type => typeof type).join(','));
-console.log( 'test'.toUpperCase() , (6371).toFixed(2), true.toString() ); 
+var primitives = ["Quelle est la taille du rayon de la terre", 6371, true];
+console.log(empty.concat(primitives).map(type => typeof type).join(","));
+console.log( "test".toUpperCase(), (6371).toFixed(2), true.toString() );
 
 // untyped/weakly typed language ? dynamically typed !
-var anything = 'Quel... ?';// VS var string: String = new String('string');
+var anything = "Quel... ?";// VS var string: String = new String("string");
 anything = 42; // container goes left, type goes right (inverse static type)
 
 // copying values
 var nbPlayers = 2;
 var nbOriginalPlayers = nbPlayers;
 a = 5;
-console.log(a, b)
+console.log(a, b);
 
 // Object type
-var playerInfos = { nb: 2 }
+var playerInfos = { nb: 2 };
 var playerScores = [12, 15, 20, 4];
 console.log(playerInfos.toString(), playerScores.toString());
-console.log(typeof playerInfos, playerScores)
+console.log(typeof playerInfos, playerScores);
 
 var currentPlayerInfos = playerInfos;
 currentPlayerInfos.nb = 5;
 console.log(playerInfos);
-
-
-
-
 
 // SCOPE
 // function is the only scope
@@ -88,7 +85,7 @@ for (var timer = 1; timer <= 5; timer++) {
 var falsy = [undefined, null, false, 0, NaN, ""]; // that's all folks !
 
 // coercion & equality
-// == allow coercion 
+// == allow coercion
 // === disallow coercion
 
 // use strict, eval & with
