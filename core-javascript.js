@@ -3,8 +3,10 @@
 
 // THE LANGUAGE THAT NO ONE LEARN
 // begin with some web project, whitout any training
-// use framwork/lib with getstarted tuto, c/p a lot of stuff, relay on stackoverflow
+// use fwk/libs with getstarted tuto, c/p a lot of stuff, relay on stackoverflow
+// instant punishment: weird, unknown, blocking errors...
 // then misunderstanding leads to hate & language blaming
+// paradox: it's a language that assumes you are smart and you'll learn it
 // @see https://github.com/denysdovhan/wtfjs
 (() => {
   var value = (function *() {
@@ -39,6 +41,32 @@ if (a && b && c && d && e && f) {
 // without try / catch madness (aka coercion)
 // without class requirement (aka composition vs inheritance, "Prototype oriented")
 
+// HOW JAVASCRIPT WORK
+// HTTP textual ressource (aka script), inline or as file
+// few syntax, and a global object/scope
+console.log(window);
+// tag <script> by tag <sct>,  (if error, next file)
+// function by function, scope by scope, a short compilation process
+
+// JAVASCRIPT POETRY (by art4theSould)
+/*
+Let this long package float,
+Goto private class if short.
+While protected with debugger case,
+Continue volatile interface.
+Instanceof super synchronized throw,
+Extends final export throws.
+
+Try import double enum?
+- False, boolean, abstract function,
+Implements typeof transient break!
+Void static, default do,
+Switch int native new.
+Else, delete null public var
+In return for const, true, char
+…Finally catch byte.
+*/
+
 // **************************************************
 // ****** CREATE A MODULAR QUIZZ PROCESS IN JS ******
 
@@ -68,6 +96,8 @@ console.log(typeof playerInfos, playerScores);
 var currentPlayerInfos = playerInfos;
 currentPlayerInfos.nb = 5;
 console.log(playerInfos);
+playerInfos = null;
+console.log(currentPlayerInfos);
 
 // SCOPE
 // function is the only scope

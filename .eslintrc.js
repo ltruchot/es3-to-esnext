@@ -92,7 +92,7 @@ module.exports = {
         "max-statements": "error",
         "max-statements-per-line": "error",
         "multiline-comment-style": [
-            "error",
+            "off",
             "separate-lines"
         ],
         "multiline-ternary": "error",
