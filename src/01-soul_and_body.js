@@ -64,9 +64,11 @@ if (a && b && c && d && e && f) {
 // intrepreted script (for HTTP purpose) vs compiled executable
 // without try / catch madness (aka coercion)
 // without class requirement (acomposition vs inheritance, "Prototype oriented")
+// with manual type management
+// withou manual memory mamangement
 // Everything is possible with JS, Everithing !
-// implicit vs explicit
-// literal vs constructed
+// a lot of implicit that can becomes explicit
+// a lot of literal than can becomes constructed
 
 // JAVASCRIPT IN NUMBERS
 // Javascript Everywhere (front, back, hybrid, OS, PDF, exe, office, games...)
@@ -138,7 +140,7 @@ In return for const, true, char
 console.log(window);
 player1 = 'Captain Shepard';
 
-// TYPES
+// PRIMITIVE TYPES
 // primitive types and their boxing behavior (ex: String().upperCase());
 var empty = [undefined, null];
 var primitives = ['Quelle est la taille du rayon de la terre', 6371, true];
@@ -155,10 +157,14 @@ var nbOriginalPlayers = nbPlayers;
 a = 5;
 console.log(a, b);
 
-// Object type
+// OBJECT TYPE
 var playerInfos = { nb: 2 };
 var playerScores = [12, 15, 20, 4];
-console.log(playerInfos.toString(), playerScores.toString());
+var playNow = function playNow () {
+  console.log('let\'s play.');
+};
+playNow.score = 0;
+console.log(playerInfos.toString(), playerScores.toString(), playNow.toString());
 console.log(typeof playerInfos, playerScores);
 
 var currentPlayerInfos = playerInfos;
@@ -166,6 +172,15 @@ currentPlayerInfos.nb = 5;
 console.log(playerInfos);
 playerInfos = null;
 console.log(currentPlayerInfos);
+
+// MUTABILITY, IMMUTABILITY
+var quizzResults = [];
+var quizzResultsRef = quizzResults;
+quizzResults.push(1); // mutated
+console.log(quizzResults, quizzResultsRef);
+quizzResults = [1]; // replaced
+console.log(quizzResults, quizzResultsRef); // still exists, until no ref !
+
 
 // Built-in object constructors, with usefull static methods
 // String, Number, Boolean (box, new forbidden !)
@@ -204,7 +219,7 @@ if (undefined || null || false || 0 || NaN || '') {
 }
 // @see https://dorey.github.io/JavaScript-Equality-Table/
 
-// coercion & equality
+// COERCION && EQUALITY
 // == allow coercion (<= & >= too...)
 // === disallow coercion
 // R1: If operands have differentype, operators aplly ToNumber
@@ -212,6 +227,11 @@ if (undefined || null || false || 0 || NaN || '') {
 // E2: == and + apply ToPrimitive on objects
 // E3: If one of the operands is a string, + operator apply ToString
 // @see https://codeburst.io/one-rule-and-three-exceptions-to-understand-javascript-coercion-35289365c449
+// || and && returns values !
+// A && B returns the value A if A can be coerced into false; otherwise, it returns B.
+// A || B returns the value A if A can be coerced into true; otherwise, it returns B.
+console.log('' && 'win');
+console.log('win' || 'fail');
 
 // USE STRICT, EVAL && WITH
 // "use string": at the beginning of a script or a function, to secure JS

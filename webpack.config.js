@@ -4,7 +4,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
-  entry: ['babel-polyfill', './src/01-soul_and_body.js'],
+  entry: [
+    'babel-polyfill',
+    './src/01-soul_and_body.js',
+    './src/02-es5_power.js'
+  ],
   devtool: 'inline-source-map',
   mode: 'development',
   devServer: {
