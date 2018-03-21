@@ -5,8 +5,10 @@ module.exports = {
   },
   extends: 'eslint:recommended',
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
+  
   rules: {
     'no-unused-vars': 'off',
     'use-isnan': 'off',
@@ -38,7 +40,7 @@ module.exports = {
     complexity: 'error',
     'computed-property-spacing': 'error',
     'consistent-return': 'error',
-    'consistent-this': 'error',
+    'consistent-this': 'off',
     curly: 'error',
     'default-case': 'error',
     'dot-location': 'off',
@@ -80,7 +82,7 @@ module.exports = {
     'max-statements-per-line': 'off',
     'multiline-comment-style': ['off', 'separate-lines'],
     'multiline-ternary': 'off',
-    'new-cap': 'error',
+    'new-cap': 'off',
     'new-parens': 'error',
     'newline-after-var': ['off', 'never'],
     'newline-before-return': 'off',
@@ -138,7 +140,7 @@ module.exports = {
     'no-plusplus': ['off'],
     'no-process-env': 'error',
     'no-process-exit': 'error',
-    'no-proto': 'error',
+    'no-proto': 'off',
     'no-prototype-builtins': 'error',
     'no-restricted-globals': 'error',
     'no-restricted-imports': 'error',
@@ -150,7 +152,7 @@ module.exports = {
     'no-script-url': 'error',
     'no-self-compare': 'off',
     'no-sequences': 'error',
-    'no-shadow': 'error',
+    'no-shadow': 'off',
     'no-shadow-restricted-names': 'error',
     'no-spaced-func': 'error',
     'no-sync': 'error',

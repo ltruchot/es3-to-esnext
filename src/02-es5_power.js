@@ -1,4 +1,3 @@
-
 // OBJECT PARTICULARITY & METHODS
 // [[GET]], [[PUT]], defineProperty, seal, freeze
 var player1 = {
@@ -82,15 +81,31 @@ function checkPlayerScore () {
 function getPlayerScore (finalScore) { return finalScore + 10; }
 var finalPlayerScore = getPlayerScore(finalPlayerScore);
 
-// CURRYING
+// CURRYING || PARTIAL
+function log(status, css) {
+  return function(context) {
+    return function(message) {
+      console.log('%c[' + status + ']', css, context + ': ' + message);
+    };
+  };
+}
+var info = log('info', 'color:green');
+var error = log('error', 'color:red');
+info('New player enter the game')('Mario');
+info('New player enter the game')('Peach');
+error('Unkown error occured')('Game over');
+var partialInfo = log.bind(null, 'special info');
+var info2 = partialInfo('color:purple');
+info2('New player arrives')('Warrio');
 
 // THIS & BINDING
 // 3 rules to now what is "this"
 // R1: from what object it was call ?
 // R2: was a it bound ?
 // R3: was it a new object
+// var selg = this;
 window.name = 'Super Quizz';
-function game () {
+function beginGame () {
   var name = 'Mega Quizz';
   console.log('this', this);
   var play = function () {
@@ -99,26 +114,68 @@ function game () {
   }.bind(this);
   play();
 }
-game();
+beginGame();
 var fullGame = {
   name: 'Cool Quizz',
-  launchGame: game
+  launchGame: beginGame
  };
 fullGame.launchGame();
-// CALL && APPLY
-
+// CALL ... && APPLY []
+function stopGame () {
+  this.name = 'Game over';
+}
+stopGame.call(fullGame);
+console.log('Full game now indicates:', fullGame.name);
 
 // NEW
 // create a new object
 // bind this
 // bind prototype
-// return object
+// return the new object
+function createPlayer (name) {
+  var that = {};
+  that.__proto__ = {};
+  that.name = name;
+  return that;
+}
+var toad = createPlayer('Toad');
+var koopa = new createPlayer('Koopa');
+console.log(toad, koopa);
 
 // FAKE CLASS
+function Player (name) {
+  this.name = name || 'unknow player';
+  this.score = 0;
+}
+Player.prototype.win = function () {
+  this.score++;
+};
+Player.prototype.displayScore = function () {
+  console.log('score of ' + this.name + ' is ' + this.score);
+};
+var mario = new Player('Mario');
+var luigi = new Player('Luigi');
+mario.win();
+mario.win();
+mario.displayScore();
 
-// PROTOTYPE
-
-// DELEGATION
+// PROTOTYPE && DELEGATION
+// what is the prototype chain. Why we all have a toString method ?
+var BetterPlayer = {
+  name: 'unknow player',
+  score: 0,
+  win: function () {
+    this.score++;
+  },
+  displayScore: function () {
+    console.log('score of ' + this.name + ' is ' + this.score);
+  }
+};
+var peach = Object.create(BetterPlayer);
+// peach.name = 'Peach';
+peach.win();
+peach.displayScore();
+// composition over inheritance
 
 // ARRAY METHODS
 // undefined: forEach
@@ -143,13 +200,33 @@ arr.newPush('player');
 console.log(arr);
 
 // immutable (shallow) array methods (pure function): concat, map
-// reduce, filter, slice(index, index)... or slice() to clone !
-
+// reduce, filter, slice(fromIndex, toIndex)... or slice() to clone !
 
 // any: find
 // number: findIndex, indexOf, lastIndexOf...
 // string: join, toString...
 // boolean: every (pass the test), some (pass the test)
+
+
+/*
+const bibliotheque = livres.map(function (livre) {
+	livre.editeur = 'acte sud';
+	return livre;
+});
+// console.log(bibliotheque);
+const total = livres.reduce(function (accumulateur, livre) {
+	return accumulateur + livre.prix;
+}, 0);
+// console.log(total / livres.length);
+const livrePasCher = livres.find(function (livre) {
+	return livre.prix === 20;
+});
+// console.log(livrePasCher);
+const livresChers = livres.filter(function (livre) {
+	return livre.prix > 21;
+});
+// console.log(livresChers);
+*/
 
 // CHAINING
 var round1Scores = [{ p1: 2, p2: 4}, { p1: 7, p2: 3 }];
