@@ -7,8 +7,8 @@ module.exports = {
   entry: [
     'babel-polyfill',
     // './src/01-soul_and_body.js',
-    './src/02-es5_power.js'
-    // '/src/03-es6_enlightenment.js, ./src/Livre.js
+    // './src/02-es5_power.js',
+    './src/03-es6_enlightenment.js'
   ],
   devtool: 'inline-source-map',
   mode: 'development',

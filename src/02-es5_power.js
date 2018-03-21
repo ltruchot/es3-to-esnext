@@ -1,4 +1,5 @@
 // OBJECT PARTICULARITY & METHODS
+// Conventional special object: collection & entities
 // [[GET]], [[PUT]], defineProperty, seal, freeze
 var player1 = {
   name: 'Peach',
@@ -211,23 +212,26 @@ var round2Scores = [{ p1: 5, p2: 0}, { p1: 1, p2: 3 }];
 
 
 /*
-const bibliotheque = livres.map(function (livre) {
-	livre.editeur = 'acte sud';
-	return livre;
+const players = [{ name: 'Momo54', age: 20 }];
+players.push({ name: 'Chiffon35', age: 22 });
+players.push({ name: 'anonymous1050', age: 25 });
+const bibliotheque = players.map(function (livre) {
+  livre.editeur = 'acte sud';
+  return livre;new Object()
 });
 // console.log(bibliotheque);
-const total = livres.reduce(function (accumulateur, livre) {
-	return accumulateur + livre.prix;
+const total = players.reduce(function (accumulateur, livre) {
+  return accumulateur + livre.age;
 }, 0);
-// console.log(total / livres.length);
-const livrePasCher = livres.find(function (livre) {
-	return livre.prix === 20;
+// console.log(total / players.length);
+const livrePasCher = players.find(function (livre) {
+  return livre.age === 20;
 });
 // console.log(livrePasCher);
-const livresChers = livres.filter(function (livre) {
-	return livre.prix > 21;
+const playersChers = players.filter(function (livre) { 
+  return livre.age > 21;
 });
-// console.log(livresChers);
+// console.log(playersChers);
 */
 
 // CHAINING

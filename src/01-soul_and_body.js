@@ -139,6 +139,8 @@ In return for const, true, char
 // but it's really not recommanded
 console.log(window);
 player1 = 'Captain Shepard';
+// console.log = function () { console.error('haha je log plus rien !')}
+// console.log(player1);
 
 // PRIMITIVE TYPES
 // primitive types and their boxing behavior (ex: String().upperCase());

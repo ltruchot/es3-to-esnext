@@ -1,14 +1,15 @@
 module.exports = {
   env: {
     browser: true,
-    node: true
+    node: true,
+    es6: true
   },
   extends: 'eslint:recommended',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module'
   },
-  
+
   rules: {
     'no-unused-vars': 'off',
     'use-isnan': 'off',
@@ -21,7 +22,7 @@ module.exports = {
     'arrow-body-style': 'error',
     'arrow-parens': 'off',
     'arrow-spacing': 'error',
-    'block-scoped-var': 'error',
+    'block-scoped-var': 'off',
     'block-spacing': 'error',
     'brace-style': 'off',
     'callback-return': 'error',
@@ -53,7 +54,7 @@ module.exports = {
     'func-names': ['off', 'never'],
     'func-style': 'off',
     'function-paren-newline': 'error',
-    'generator-star-spacing': 'error',
+    'generator-star-spacing': 'off',
     'getter-return': 'error',
     'global-require': 'error',
     'guard-for-in': 'off',
