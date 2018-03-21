@@ -84,7 +84,7 @@ if (a && b && c && d && e && f) {
 
 // HOW JAVASCRIPT WORK
 // HTTP textual ressource (aka script), inline or as file
-// few syntax, and a global object/scope
+// few syntax, and a global object/scope (aka hoisting)
 // tag <script> by tag <script>,  (if error, next script / next file)
 // when code parsed & executed
 // function by function, scope by scope, a short compilation process

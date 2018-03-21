@@ -72,7 +72,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'lines-around-comment': 'error',
     'lines-around-directive': 'error',
-    'lines-between-class-members': 'error',
+    'lines-between-class-members': 'off',
     'max-depth': 'error',
     'max-len': 'off',
     'max-lines': 'error',

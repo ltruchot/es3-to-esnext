@@ -10,15 +10,14 @@
 // 		// console.log(i);
 // 	}, i * 1000);
 // }
-const livres = [{nom: 'Le joueur', prix: 20}];
-livres.push({nom: 'La joueuse', prix: 22});
-livres.push({nom: 'La clef', prix: 25});
-
+const livres = [{ nom: 'Le joueur', prix: 20 }];
+livres.push({ nom: 'La joueuse', prix: 22 });
+livres.push({ nom: 'La clef', prix: 25 });
 
 // IMPORT / EXPORT
 import { Livre, Roman } from './Livre';
 
-// class
+// CLASS
 const livre1 = new Livre(25, 'la clef');
 const livre2 = new Livre(26, 'le chuchoteur');
 // console.log(livre1, livre2);
@@ -31,7 +30,7 @@ const roman1 = new Roman(20, 'La mare au diable');
 
 // TEMPLATE STRING
 const val = 'les amis';
-let templateString = `
+const templateString = `
 <div>
 	<p>"bonjour ${val}"</p>
 </div>
@@ -45,7 +44,7 @@ const func = () => 'bonjour';
 
 // SPREAD
 const add = (a, b, c) => {
-	console.log(a + b + c);
+  console.log(a + b + c);
 };
 const arr = [1, 2, 3];
 add(...arr);
@@ -56,28 +55,29 @@ add(...arr2);
 const [a, b, ...c] = arr2;
 console.log(a, b, c);
 const pierreEtSabre = {
-	livre: 'La pierre et le sabre',
-	auteur: 'Eiji Yoshikawa',
-	prix: 20,
-	type: 'roman'
+  livre: 'La pierre et le sabre',
+  auteur: 'Eiji Yoshikawa',
+  prix: 20,
+  type: 'roman'
 };
 const { livre, auteur } = pierreEtSabre;
 console.log(livre, auteur);
-const checkPrice = (livre) => {
-	const { prix } = livre;
-	console.log(prix);
+const checkPrice = livre => {
+  const { prix } = livre;
+  console.log(prix);
 };
 checkPrice(pierreEtSabre);
 
-// COMPUTED KEYS
+// SHORT HAND KEY-VALUE && COMPUTED KEYS
 const key = 'notice3';
+const prix = 21;
 const notice3 = {};
 const divineLumiere = {
-	livre: 'La divine lumière',
-	auteur: 'Eiji Yoshikawa',
-	prix: 21,
-	type: 'roman',
-	[key]: notice3
+  livre: 'La divine lumière',
+  auteur: 'Eiji Yoshikawa',
+  prix,
+  type: 'roman',
+  [key]: notice3
 };
 console.log(divineLumiere);
 
@@ -88,5 +88,3 @@ console.log(divineLumiere);
 // GENERATORS
 
 // DECORATORS
-
-

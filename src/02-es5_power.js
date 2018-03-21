@@ -199,6 +199,8 @@ arr.newPush = push;
 arr.newPush('player');
 console.log(arr);
 
+var round1Scores = [{ p1: 2, p2: 4}, { p1: 7, p2: 3 }];
+var round2Scores = [{ p1: 5, p2: 0}, { p1: 1, p2: 3 }];
 // immutable (shallow) array methods (pure function): concat, map
 // reduce, filter, slice(fromIndex, toIndex)... or slice() to clone !
 
@@ -229,8 +231,6 @@ const livresChers = livres.filter(function (livre) {
 */
 
 // CHAINING
-var round1Scores = [{ p1: 2, p2: 4}, { p1: 7, p2: 3 }];
-var round2Scores = [{ p1: 5, p2: 0}, { p1: 1, p2: 3 }];
 var scoreOfPlayer1 = round1Scores
                       .concat(round2Scores)
                       .map(scores => scores.p1)
