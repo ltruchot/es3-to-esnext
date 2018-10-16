@@ -1,25 +1,26 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
+const webpack = require("webpack");
 module.exports = {
   entry: [
-    'babel-polyfill',
+    "babel-polyfill",
     // './src/01-soul_and_body.js',
-    // './src/02-es5_power.js',
-    './src/03-es6_enlightenment.js'
+    // "./src/02-es5_power.js"
+    "./src/03-es6_enlightenment.js"
+    // "./src/04-esnext_nirvana.js"
   ],
-  devtool: 'inline-source-map',
-  mode: 'development',
+  devtool: "inline-source-map",
+  mode: "development",
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     hot: true,
     port: 4200
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({ title: 'Development' }),
+    new CleanWebpackPlugin(["dist"]),
+    new HtmlWebpackPlugin({ title: "Development" }),
     // new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
@@ -28,13 +29,13 @@ module.exports = {
     rules: [
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: 'file-loader'
+        use: "file-loader"
       }
     ]
   },
-  resolve: { extensions: ['.js'] },
+  resolve: { extensions: [".js"] },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
   }
 };
